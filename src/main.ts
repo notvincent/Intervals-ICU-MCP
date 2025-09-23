@@ -4,6 +4,7 @@ import { createWorkoutsTool } from "./tools/createWorkouts.js";
 import { listEventsTool } from "./tools/listEvents.js";
 import { deleteEventsTool } from "./tools/deleteEvents.js";
 import { updateEventTool } from "./tools/updateEvent.js";
+import { getWellnessTool } from "./tools/getWellness.js";
 
 // Create an MCP server
 const server = new McpServer({
@@ -15,6 +16,7 @@ server.registerTool(createWorkoutsTool.name, createWorkoutsTool.definition, crea
 server.registerTool(listEventsTool.name, listEventsTool.definition, listEventsTool.handler);
 server.registerTool(deleteEventsTool.name, deleteEventsTool.definition, deleteEventsTool.handler);
 server.registerTool(updateEventTool.name, updateEventTool.definition, updateEventTool.handler);
+server.registerTool(getWellnessTool.name, getWellnessTool.definition, getWellnessTool.handler);
 
 // Start receiving messages on stdin and sending messages on stdout
 const transport = new StdioServerTransport();
