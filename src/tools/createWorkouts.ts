@@ -6,7 +6,7 @@ export const createWorkoutsTool = {
   name: "CreateWorkouts",
   definition: {
     title: "Create Workouts",
-    description: `Create multiple new workouts
+    description: `Create multiple new workouts up to a maximum of one week's worth of workouts (7 days) at a time.
 Each workout's start_date_time_local must be in the format YYYY-MM-DDTHH:MM:SS and time can default to 00:00:00
 
 description is used to specify the workout and follows this format:
