@@ -5,7 +5,7 @@ export interface IntervalsConfig {
 }
 
 export const defaultConfig: IntervalsConfig = {
-  athleteId: '',
-  apiKey: '',
+  athleteId: process.env.ATHLETE_ID || '',
+  apiKey: process.env.API_KEY || '',
   baseUrl: 'https://intervals.icu'
 };

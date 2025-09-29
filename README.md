@@ -16,15 +16,14 @@ A Model Context Protocol (MCP) server that provides tools for managing workouts 
 - Intervals.icu API key
 
 
-## Setup
+## Setup for techincal people (if you have coding experience)
 
-
-1. Update `config.ts` with your API key and account number 
-
-2. Add the following to your mcp configuration depending on what you are trying to run from
+1. Add the following to your mcp configuration depending on what you are trying to run from
 
 #### VSCode GH copilot
+
 ```json
+//  .vscode/mcp.json
 {
 	"servers": {
 		"interval-icu-server": {
@@ -32,7 +31,11 @@ A Model Context Protocol (MCP) server that provides tools for managing workouts 
 			"command": "npm",
 			"args": [
 				"start"
-			]
+			],
+			"env": {
+				"ATHLETE_ID": "", // YOUR API KEY AND ID
+				"API_KEY": ""
+			}
 		}
 	},
 	"inputs": []
@@ -44,7 +47,52 @@ A Model Context Protocol (MCP) server that provides tools for managing workouts 
 {
     "Interval-ICU": {
         "command": "npx",
-        "args":["tsx", "PATH_TO_PROJECT\\IntervalsMcp\\src\\main.ts"]
+        "args":["tsx", "PATH_TO_PROJECT\\IntervalsMcp\\src\\main.ts"],
+		"env": {
+			"ATHLETE_ID": "", // YOUR API KEY AND ID
+			"API_KEY": ""
+		}
     }
 }
 ```
+
+### Setup for non techincal people
+
+1. Download and unzip all the code files
+![alt text](ReadMEImages/image-1.png)
+1. It will be easiest for you to use claude.ai as your chatbot which you can install [here](https://claude.ai/download). The free tier will be good enough for you to get it to do a couple actions per day with it. I am in no way associated with claude.ai, but I do think they have a good product.
+2. Get your API key and athlete ID from intervals.icu, it can be found in the settings page, NEVER share your API key with anybody, it is essentially equivalent to your account password.
+![alt text](ReadMEImages/image.png)
+3. Follow [claude's instructions](https://modelcontextprotocol.io/docs/develop/connect-local-servers) on how to setup an MCP server. The one KEY difference is, for the third step you will use this configuration:
+
+```json
+// For windows machines
+{
+    "Interval-ICU": {
+        "command": "npx",
+        "args":["tsx", "PATH_TO_PROJECT\\IntervalsMcp\\src\\main.ts"], // Put the full path to the main.ts file
+		"env": {
+			"ATHLETE_ID": "", // Put your athlete ID from step 2 here
+			"API_KEY": "" // Put your API key from step 2 here
+		}
+    }
+}
+```
+
+```json
+// For mac machines
+{
+    "Interval-ICU": {
+        "command": "npx",
+        "args":["tsx", "PATH_TO_PROJECT/IntervalsMcp/src/main.ts"],
+		"env": {
+			"ATHLETE_ID": "", // Put your athlete ID from step 2 here
+			"API_KEY": "" // Put your API key from step 2 here
+		}
+    }
+}
+```
+
+5. Once you restart claude, it should be able to interact with intervals.icu. Try asking it a question like "Give me a 2h threshold workout in interval.icu for tomorrow"
+6. If you want to try the training plan builder you can do so like this:
+![alt text](ReadMEImages/20250929-0413-51.6514406.gif)
