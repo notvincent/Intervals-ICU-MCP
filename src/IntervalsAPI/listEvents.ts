@@ -1,9 +1,24 @@
 import { IntervalsConfig, defaultConfig } from '../config';
 
+export type EventCategory = 
+  | 'WORKOUT'
+  | 'RACE_A'
+  | 'RACE_B'
+  | 'RACE_C'
+  | 'NOTE'
+  | 'HOLIDAY'
+  | 'SICK'
+  | 'INJURED'
+  | 'SET_EFTP'
+  | 'FITNESS_DAYS'
+  | 'SEASON_START'
+  | 'TARGET'
+  | 'SET_FITNESS';
+
 export interface ListEventsParams {
   oldest?: string; // Local date (ISO-8601) for oldest event to return
   newest?: string; // Local date (ISO-8601) for newest event to return (inclusive)
-  category?: string[]; // Array of categories to filter for (e.g. ["WORKOUT", "NOTES"])
+  category?: EventCategory[]; // Array of categories to filter for
   limit?: number; // Max number of events to return
   calendar_id?: number;
   ext?: string; // Convert workouts to this format (zwo, mrc, erg or fit)

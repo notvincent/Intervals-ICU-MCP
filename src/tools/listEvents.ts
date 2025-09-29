@@ -10,7 +10,7 @@ export const listEventsTool = {
 FILTERING OPTIONS:
 - oldest: Local date time (ISO-8601) for oldest event to return (e.g. "2025-01-01T00:00:00")
 - newest: Local date time (ISO-8601) for newest event to return, MUST be a day in the future (inclusive)
-- category: Array of categories to filter for (e.g. ["WORKOUT", "NOTES"])
+- category: Array of categories to filter for. Valid categories: WORKOUT, RACE_A, RACE_B, RACE_C, NOTE, HOLIDAY, SICK, INJURED, SET_EFTP, FITNESS_DAYS, SEASON_START, TARGET, SET_FITNESS
 - limit: Maximum number of events to return
 - calendar_id: Specific calendar ID to filter events from
 - ext: Convert workouts to this format (zwo, mrc, erg or fit)
@@ -23,12 +23,13 @@ FILTERING OPTIONS:
 
 EXAMPLES:
 - List all workouts from this week: {"category": ["WORKOUT"], "oldest": "2025-09-15", "newest": "2025-09-21"}
+- List notes and holidays: {"category": ["NOTE", "HOLIDAY"]}
 - List last 10 events: {"limit": 10}
 - Export workouts as Zwift files: {"category": ["WORKOUT"], "ext": "zwo"}`,
     inputSchema: {
       oldest: z.string().optional().describe("Local date (ISO-8601) for oldest event to return"),
       newest: z.string().optional().describe("Local date (ISO-8601) for newest event to return (inclusive)"),
-      category: z.array(z.string()).optional().describe("Array of categories to filter for (e.g. ['WORKOUT', 'NOTES'])"),
+      category: z.array(z.string()).optional().describe("Array of categories to filter for. Valid values: WORKOUT, RACE_A, RACE_B, RACE_C, NOTE, HOLIDAY, SICK, INJURED, SET_EFTP, FITNESS_DAYS, SEASON_START, TARGET, SET_FITNESS"),
       limit: z.number().optional().describe("Max number of events to return"),
       calendar_id: z.number().optional().describe("Specific calendar ID to filter events from"),
       ext: z.enum(["zwo", "mrc", "erg", "fit"]).optional().describe("Convert workouts to this format"),
