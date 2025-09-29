@@ -92,7 +92,10 @@ A Model Context Protocol (MCP) server that provides tools for managing workouts 
     }
 }
 ```
-
-5. Once you restart claude, it should be able to interact with intervals.icu. Try asking it a question like "Give me a 2h threshold workout in interval.icu for tomorrow"
-6. If you want to try the training plan builder you can do so like this:
+5. Open your terminal, navigate to the IntervalsMcp folder and run this command:
+```
+npm install
+```
+6. Once you've done this you can restart claude and it should be able to interact with intervals.icu. Try asking it a question like "Give me a 2h threshold workout in interval.icu for tomorrow"
+7. If you want to try the training plan builder you can do so like this:
 ![alt text](ReadMEImages/20250929-0413-51.6514406.gif)
