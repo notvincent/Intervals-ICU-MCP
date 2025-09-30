@@ -55,7 +55,8 @@ This creates: 3 one-minute efforts with recovery, then 2 twenty-minute efforts w
         name: z.string(), 
         start_date_time_local: z.string(),
         description: z.string().optional(),
-        type: z.enum(["Ride", "Run", "Swim", "Walk", "Weight Training"])
+        type: z.enum(["Ride", "Run", "Swim", "Walk", "Weight Training"]),
+        color: z.string().optional()
       }))
     }
   },
@@ -64,12 +65,14 @@ This creates: 3 one-minute efforts with recovery, then 2 twenty-minute efforts w
     start_date_time_local: string;
     description?: string;
     type: "Ride" | "Run" | "Swim" | "Walk" | "Weight Training";
+    color: string;
   }> }) => {
     const workoutEvents = workouts.map(workout => createWorkoutEvent({
       name: workout.name,
       start_date_local: workout.start_date_time_local, // In reality intervals.icu should have called this start_date_time_local
       description: workout.description || "",
-      type: workout.type
+      type: workout.type,
+      color: workout.color
     }));
 
     await EventsAPI.createBulkEvents(workoutEvents);
