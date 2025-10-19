@@ -1,4 +1,4 @@
-import { defaultConfig } from '../config';
+import { defaultConfig } from '../config.js';
 
 export interface Event {
   category: "WORKOUT" | "RACE_A" | "RACE_B" | "RACE_C" | "NOTE" | "HOLIDAY" | "SICK" | "INJURED" | "SET_EFTP" | "FITNESS_DAYS" | "SEASON_START" | "TARGET" | "SET_FITNESS";

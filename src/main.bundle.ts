@@ -6,7 +6,8 @@ import { listActivitiesTool } from "./tools/listActivities.js";
 import { deleteEventsTool } from "./tools/deleteEvents.js";
 import { updateEventTool } from "./tools/updateEvent.js";
 import { getWellnessTool } from "./tools/getWellness.js";
-import { writeMeATrainingPlanPrompt } from "./prompts/WriteMeATrainingPlan.js";
+// Skip the training plan prompt for now to avoid import.meta issues
+// import { writeMeATrainingPlanPrompt } from "./prompts/WriteMeATrainingPlan.js";
 
 // Create an MCP server
 const server = new McpServer({
@@ -21,22 +22,19 @@ server.registerTool(deleteEventsTool.name, deleteEventsTool.definition, deleteEv
 server.registerTool(updateEventTool.name, updateEventTool.definition, updateEventTool.handler);
 server.registerTool(getWellnessTool.name, getWellnessTool.definition, getWellnessTool.handler);
 
-// Register prompt primitive
-server.registerPrompt(
-  writeMeATrainingPlanPrompt.name,
-  writeMeATrainingPlanPrompt.definition,
-  writeMeATrainingPlanPrompt.handler
-);
+// Register prompt primitive (commented out for now)
+// server.registerPrompt(
+//   writeMeATrainingPlanPrompt.name,
+//   writeMeATrainingPlanPrompt.definition,
+//   writeMeATrainingPlanPrompt.handler
+// );
 
-// Main function to start the server
 async function main() {
-  // Start receiving messages on stdin and sending messages on stdout
   const transport = new StdioServerTransport();
   await server.connect(transport);
 }
 
-// Start the server
 main().catch((error) => {
-  console.error("Failed to start MCP server:", error);
+  console.error("Server error:", error);
   process.exit(1);
 });

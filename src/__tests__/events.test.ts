@@ -1,6 +1,6 @@
-import { EventsAPI, Event } from '../IntervalsAPI/events';
-import { createWorkoutEvent } from '../IntervalsAPI/utils/createWorkoutEvent';
-import { IntervalsConfig } from '../config';
+import { EventsAPI, Event } from '../IntervalsAPI/events.js';
+import { createWorkoutEvent } from '../IntervalsAPI/utils/createWorkoutEvent.js';
+import { IntervalsConfig } from '../config.js';
 import { jest } from '@jest/globals';
 
 // Mock fetch globally

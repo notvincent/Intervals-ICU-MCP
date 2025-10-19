@@ -3,8 +3,20 @@
   "scripts": {
     "start": "tsx src/main.ts",
     "test": "jest",
+    "build": "tsc",
     "test:watch": "jest --watch",
-    "test:coverage": "jest --coverage"
+    "test:coverage": "jest --coverage",
+    "bundle": "esbuild src/main.bundle.ts --bundle --platform=node --target=node18 --format=cjs --outfile=dist/main.bundle.js",
+    "package": "npm run bundle && pkg dist/main.bundle.js --targets node18-win-x64 --output intervals-icu-mcp.exe",
+    "package:all": "npm run bundle && pkg dist/main.bundle.js --targets node18-win-x64,node18-macos-x64,node18-linux-x64 --out-path build"
+  },
+  "pkg": {
+    "assets": [
+      "node_modules/@modelcontextprotocol/sdk/**/*"
+    ],
+    "scripts": [
+      "dist/**/*.js"
+    ]
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.18.1"
@@ -12,7 +24,9 @@
   "devDependencies": {
     "@types/jest": "^30.0.0",
     "@types/node": "^24.5.2",
+    "esbuild": "^0.19.0",
     "jest": "^29.7.0",
+    "pkg": "^5.8.1",
     "ts-jest": "^29.4.4",
     "tsx": "^4.7.1",
     "typescript": "^5.9.2"

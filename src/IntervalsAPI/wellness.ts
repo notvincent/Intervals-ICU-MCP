@@ -1,4 +1,4 @@
-import { IntervalsConfig, defaultConfig } from '../config';
+import { IntervalsConfig, defaultConfig } from '../config.js';
 
 export class WellnessAPI {
   /**

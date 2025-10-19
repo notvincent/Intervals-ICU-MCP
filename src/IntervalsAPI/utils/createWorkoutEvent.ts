@@ -1,4 +1,4 @@
-import { Event } from '../events';
+import { Event } from '../events.js';
 
 /**
  * Parameters required to create a partial WorkoutEvent

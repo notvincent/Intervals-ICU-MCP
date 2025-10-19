@@ -1,4 +1,4 @@
-import { IntervalsConfig, defaultConfig } from '../config';
+import { IntervalsConfig, defaultConfig } from '../config.js';
 
 export interface ListActivitiesParams {
   oldest?: string; // Local date (ISO-8601) for oldest activity to return
