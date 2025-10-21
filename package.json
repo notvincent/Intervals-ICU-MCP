@@ -7,7 +7,6 @@
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "bundle": "esbuild src/main.bundle.ts --bundle --platform=node --target=node18 --format=cjs --outfile=dist/main.bundle.js",
-    "package": "npm run bundle && pkg dist/main.bundle.js --targets node18-win-x64 --output intervals-icu-mcp.exe",
     "package:all": "npm run bundle && pkg dist/main.bundle.js --targets node18-win-x64,node18-macos-x64,node18-linux-x64 --out-path build"
   },
   "pkg": {
