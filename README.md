@@ -13,7 +13,7 @@ A Model Context Protocol (MCP) server that provides tools for managing workouts 
 
 - An Intervals.icu account
 
-### Setup for non techincal people (using pre-built binaries)
+### Setup for non technical people (using pre-built binaries)
 
 1. Download the appropriate binary for your platform from the [latest release](https://github.com/notvincent/Intervals-ICU-MCP/releases/tag/v0.0.01-alpha):
    - **Windows**: Download `main.bundle-win.exe`
