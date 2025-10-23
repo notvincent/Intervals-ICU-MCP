@@ -4,7 +4,7 @@ import { Event } from '../events.js';
  * Parameters required to create a partial WorkoutEvent
  * Uses the Event interface but specifies which fields are mandatory for creation
  */
-export interface CreateWorkoutEventParams extends Pick<Event, 'name' | 'start_date_local' | 'description' | 'type'> {
+export interface CreateWorkoutEventParams extends Pick<Event, 'name' | 'start_date_local' | 'description' | 'type' | 'color'> {
 }
 
 /**
@@ -51,6 +51,7 @@ export function createWorkoutEvent(params: CreateWorkoutEventParams): Partial<Ev
     start_date_local,
     description,
     type,
+    color
   } = params;
 
   return {
@@ -60,6 +61,6 @@ export function createWorkoutEvent(params: CreateWorkoutEventParams): Partial<Ev
     end_date_local: null,
     description,
     type,
-    color: "blue"
+    color: color
   };
 }
